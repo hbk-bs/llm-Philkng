@@ -10,7 +10,7 @@ function preload() {
 }
 
 function setup() {
-  noCanvas(); 
+  noCanvas();
   poly = new p5.PolySynth();
   const runButton = document.getElementById('run');
   runButton.addEventListener('click', generateAndPlaySound);
@@ -34,8 +34,8 @@ function generateAndPlaySound() {
     messages: [
       {
         role: 'You are a music and tone generator',
-        content: `Generate JSON for us in this structure with random values and play those notes:
-        {"note": [
+        content: `Generate JSON for us in this structure with random values:
+        {"notes": [
           {note: 'C4', frequency: 261.63},
           {note: 'D4', frequency: 293.66},
           {note: 'E4', frequency: 329.63},
@@ -78,8 +78,8 @@ function playNotesSequentially(notes) {
   const duration = 2;
 
   notes.forEach(note => {
+    console.log(`Playing note: ${note.note} at time: ${time} with duration: ${duration}`);
     poly.play(note.note, 0.5, time, duration);
     time += duration; 
   });
 }
-
