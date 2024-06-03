@@ -3,11 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>llms</title>
+	<title>LLMs</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<button id="run">run</button>
-	<script type="module" src="index.js"></script>
+	<h1>Phils-AI Music Generator</h1>
+	<input type="text" id="user-input" placeholder="Wonach soll es klingen?">
+	<button id="run">Melodie!</button>
+	<div id="output"></div>
+	<script type="module">
+		import { LLM } from './llm.js';
+		const llm = new LLM({
+			host: 'https://philkng-openai_api.web.val.run/'
+		});
+		window.llm = llm;
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.sound.min.js" integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="index.js" type="module"></script>
 </body>
 </html>
